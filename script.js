@@ -8,7 +8,7 @@ const routes = {
   voyageRecords: { label: "항해 기록 게시판", title: "항해 기록 게시판", parent: "community" },
   reviewArchive: { label: "후기 아카이브 목록", title: "후기 아카이브 목록", parent: "community" },
   learning: { label: "배움과 도구", title: "배움과 도구", group: "program" },
-  consulting: { label: "기업 컨설팅", title: "기업 컨설팅", group: "program" },
+  consulting: { label: "기업문의", title: "기업문의", group: null },
   curation: { label: "큐레이션", title: "큐레이션", group: "program" },
   membership: { label: "승선 신청", title: "멤버십 신청 랜딩", group: null },
   platform: { label: "도반 공간", title: "도반 공간", group: null }
@@ -716,7 +716,7 @@ function renderPlaceholder(routeKey) {
   const data = {
     brand: ["소개 > 브랜드 소개", "브랜드 소개", "노다의 방주가 무엇이고, 왜 만들어졌으며, 누가 이끄는지 명료하게 설명함.<br>리더에 대한 신뢰와 노션다움·노다의 방주·비전허브가 하나의 철학 안에서 어떻게 연결되는지 보여줌."],
     story: ["소개 > 브랜드 스토리", "브랜드 스토리", "디지털 대홍수와 항해의 세계관을 문학적 서사처럼 경험하게 하는 몰입형 브랜드 스토리 페이지. 이 세계 안으로 들어가보고 싶게 만드는 역할."],
-    consulting: ["프로그램 > 기업 컨설팅", "기업 컨설팅", "팀과 조직의 일하는 구조를 진단하고, 노션·자동화·AI를 기반으로 업무 시스템을 설계·도입하는 서비스 안내 페이지."],
+    consulting: ["기업문의", "기업문의", "팀과 조직의 일하는 구조를 진단하고, 노션·자동화·AI를 기반으로 업무 시스템을 설계·도입하는 서비스 안내 페이지."],
     platform: ["도반 공간", "도반 공간", "도반 전용 플랫폼 또는 외부 커뮤니티로 이동하는 메뉴 자리입니다. 세부 구조는 후속 DB 확정 후 반영합니다."]
   }[routeKey];
   const tabs = routes[routeKey].group ? subtabs(routes[routeKey].group) : "";
@@ -753,7 +753,7 @@ function renderPlaceholder(routeKey) {
     </div>`,
     consulting: `<div class="sections">
       ${richSection("S1. 어떤 조직에 필요한가", "팀과 조직의 일하는 구조를 진단하고, 노션·자동화·AI를 기반으로 업무 시스템을 설계·도입하는 서비스 안내 페이지.", ["업무 구조가 흩어진 조직", "노션/자동화 도입이 필요한 조직", "AI 활용 기준이 필요한 조직"], "cards")}
-      ${richSection("S2. 제공 범위", "기업 컨설팅에서 제공하는 범위를 확인하는 영역.", ["업무 구조 진단", "노션 시스템 설계", "자동화/AI 활용", "운영 교육"], "cards")}
+      ${richSection("S2. 제공 범위", "기업문의에서 제공 범위를 확인하는 영역.", ["업무 구조 진단", "노션 시스템 설계", "자동화/AI 활용", "운영 교육"], "cards")}
       ${richSection("S3. 진행 프로세스", "대략적인 프로세스와 문의 동선을 보여주는 영역.", ["진단", "설계", "구축", "교육", "운영 점검"], "cards")}
       ${richSection("S4. 적용 예시", "도입 사례 또는 적용 예시를 배치하는 영역.", ["적용 전 문제", "설계한 업무 시스템", "도입 후 운영 방식"], "cards")}
       ${richSection("S5. 문의 안내", "조직 대상 문의 동선과 연락처를 안내하는 영역.", ["문의 버튼", "상담 폼", "연락처"], "cards")}
