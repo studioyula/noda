@@ -23,8 +23,8 @@ const nav = [
 ];
 
 const utilityNav = [
-  { label: "기업문의 ↗", route: "consulting" },
-  { label: "도반 공간 ↗", route: "platform" }
+  { label: "기업문의", route: "consulting" },
+  { label: "도반 공간", route: "platform" }
 ];
 
 const filters = {
@@ -245,7 +245,7 @@ const ctaStates = {
 };
 
 const state = {
-  route: "home",
+  route: "learning",
   filter: "all",
   selectedItem: "openlecture",
   catalogCategory: "전체",

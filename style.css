@@ -64,6 +64,10 @@ button { color: inherit; }
 }
 
 .utility-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   border: 0;
   background: transparent;
   color: #666;
@@ -72,10 +76,28 @@ button { color: inherit; }
   transition: color .16s ease, transform .16s ease;
 }
 
+.utility-link::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  background:
+    linear-gradient(var(--ink), var(--ink)) right 2px top 2px / 5px 1px no-repeat,
+    linear-gradient(var(--ink), var(--ink)) right 2px top 2px / 1px 5px no-repeat,
+    linear-gradient(135deg, transparent 42%, var(--ink) 43% 57%, transparent 58%) center / 8px 8px no-repeat;
+  border: 1px solid currentColor;
+  opacity: .65;
+}
+
 .utility-link:hover,
 .utility-link.is-active {
   color: var(--ink);
   transform: translateY(-1px);
+}
+
+.utility-link:hover::after,
+.utility-link.is-active::after {
+  opacity: 1;
 }
 
 .gnb {
@@ -152,21 +174,15 @@ button { color: inherit; }
   position: relative;
   color: #333;
   font-weight: 700;
-}
-
-.nav-btn-curation::after {
-  content: "";
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 6px;
-  border-bottom: 1px solid #777;
+  margin-left: 12px;
+  padding-left: 20px;
+  border-left: 1px solid var(--line-soft);
 }
 
 .nav-btn-curation:hover,
 .nav-btn-curation.is-active {
-  border-color: transparent;
-  background: transparent;
+  border-color: transparent transparent transparent var(--line-soft);
+  background: #fafafa;
   color: #111;
 }
 
