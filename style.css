@@ -149,7 +149,24 @@ button { color: inherit; }
 }
 
 .nav-btn-curation {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: #333;
+  font-weight: 800;
+}
+
+.nav-btn-curation::before {
+  content: "선별";
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 7px;
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  background: #f7f7f7;
+  color: #666;
+  font-size: 10px;
   font-weight: 800;
 }
 
@@ -162,8 +179,10 @@ button { color: inherit; }
 .nav-btn-primary {
   margin-left: 18px;
   border-color: var(--ink);
+  border-radius: 999px;
   background: var(--ink);
   color: #fff;
+  padding: 10px 20px;
   font-weight: 800;
 }
 
@@ -171,6 +190,7 @@ button { color: inherit; }
 .nav-btn-primary.is-active {
   background: #fff;
   color: var(--ink);
+  transform: translateY(-1px);
 }
 
 .brand:hover .brand-mark {

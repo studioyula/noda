@@ -18,7 +18,7 @@ const nav = [
   { label: "소개", route: "brand" },
   { label: "커리큘럼", route: "curriculum" },
   { label: "커뮤니티", route: "community" },
-  { label: "✦ 큐레이션", route: "curation", variant: "curation" },
+  { label: "큐레이션", route: "curation", variant: "curation" },
   { label: "승선신청", route: "membership", variant: "primary" }
 ];
 
