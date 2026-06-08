@@ -15,12 +15,16 @@ const routes = {
 };
 
 const nav = [
-  { label: "소개", route: "brand", children: ["brand", "story"] },
+  { label: "소개", route: "brand" },
   { label: "커리큘럼", route: "curriculum" },
   { label: "커뮤니티", route: "community" },
-  { label: "프로그램", route: "learning", children: ["learning", "consulting", "curation"] },
-  { label: "승선 신청", route: "membership" },
-  { label: "도반 공간", route: "platform", special: true }
+  { label: "✦ 큐레이션", route: "curation", variant: "curation" },
+  { label: "승선신청", route: "membership", variant: "primary" }
+];
+
+const utilityNav = [
+  { label: "기업문의 ↗", route: "consulting" },
+  { label: "도반 공간 ↗", route: "platform" }
 ];
 
 const filters = {
@@ -264,6 +268,7 @@ const curriculumIslands = [
 
 const app = document.querySelector("#app");
 const globalMenu = document.querySelector("#globalMenu");
+const utilityMenu = document.querySelector("#utilityMenu");
 const floatingCta = document.querySelector("#floatingCta");
 
 function setRoute(route, options = {}) {
@@ -283,24 +288,25 @@ function activeTopRoute(item) {
 }
 
 function renderNav() {
+  utilityMenu.innerHTML = utilityNav.map(item => `
+    <button class="utility-link ${activeTopRoute(item) ? "is-active" : ""}" data-route="${item.route}">
+      ${item.label}
+    </button>
+  `).join("");
+
   globalMenu.innerHTML = nav.map(item => `
     <div class="nav-item">
-      <button class="nav-btn ${item.special ? "nav-btn-special" : ""} ${activeTopRoute(item) ? "is-active" : ""}" data-route="${item.route}">
+      <button class="nav-btn ${item.variant ? `nav-btn-${item.variant}` : ""} ${activeTopRoute(item) ? "is-active" : ""}" data-route="${item.route}">
         ${item.label}
       </button>
-      ${item.children ? `
-        <div class="dropdown" role="menu">
-          ${item.children.map(child => `
-            <button class="${state.route === child ? "is-active" : ""}" data-route="${child}" role="menuitem">
-              ${routes[child].label}
-            </button>
-          `).join("")}
-        </div>
-      ` : ""}
     </div>
   `).join("");
 
   globalMenu.querySelectorAll("[data-route]").forEach(button => {
+    button.addEventListener("click", () => setRoute(button.dataset.route));
+  });
+
+  utilityMenu.querySelectorAll("[data-route]").forEach(button => {
     button.addEventListener("click", () => setRoute(button.dataset.route));
   });
 
