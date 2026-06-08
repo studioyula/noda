@@ -245,7 +245,7 @@ const ctaStates = {
 };
 
 const state = {
-  route: "learning",
+  route: "home",
   filter: "all",
   selectedItem: "openlecture",
   catalogCategory: "전체",
